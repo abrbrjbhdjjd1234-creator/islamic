@@ -1,0 +1,364 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Tajawal',sans-serif;direction:rtl;background:var(--bg);color:var(--text);}
+
+body.light{--bg:#eef4fc;--bg2:#fff;--bg3:#f0f6ff;--text:#0c2d5a;--text2:#5a7aa8;--text3:#1a3d6e;--hdr:#1a56a0;--nav:#134a8e;--brd:#cde0f5;--tag-bg:#e6f1fb;--tag-c:#185fa5;--ico-c:#1a56a0;--ico-bg:#e6f1fb;--rule-brd:#1a56a0;--btn-bg:#e6f1fb;--btn-c:#185fa5;--footer:#134a8e;--footer-t:#b8d4f0;--sup-bg:#f0f6ff;--dvd:#e6f1fb;}
+body.dark{--bg:#0d1117;--bg2:#161b22;--bg3:#0d1525;--text:#d0e4f7;--text2:#7a96b8;--text3:#b0cceb;--hdr:#0f2a54;--nav:#0a1f3d;--brd:#1e3a5f;--tag-bg:#0f2a54;--tag-c:#7ab8f0;--ico-c:#7ab8f0;--ico-bg:#0f2a54;--rule-brd:#3a7bd5;--btn-bg:#0f2a54;--btn-c:#7ab8f0;--footer:#0a1f3d;--footer-t:#5a7aa8;--sup-bg:#0f1e36;--dvd:#1e3a5f;}
+
+header{background:var(--hdr);}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:14px 24px 10px;}
+.site-title{font-family:'Amiri',serif;font-size:22px;color:#fff;font-weight:700;display:flex;align-items:center;gap:8px;}
+.site-sub{font-size:12px;color:#b8d4f0;margin-top:2px;}
+.basmala{font-family:'Amiri',serif;font-size:22px;color:#f5d97a;text-align:center;padding:0 0 12px;}
+.theme-toggle{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:5px 12px;cursor:pointer;color:#fff;font-family:'Tajawal',sans-serif;font-size:13px;font-weight:500;transition:background .2s;}
+.theme-toggle:hover{background:rgba(255,255,255,0.2);}
+.theme-toggle i{font-size:17px;}
+
+nav{background:var(--nav);display:flex;justify-content:center;gap:4px;padding:8px 12px;flex-wrap:wrap;}
+.nav-btn{background:transparent;border:none;color:#b8d4f0;padding:9px 13px;border-radius:8px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:13px;font-weight:500;display:flex;align-items:center;gap:5px;transition:background .2s,color .2s;}
+.nav-btn i{font-size:16px;}
+.nav-btn:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.nav-btn.active{background:rgba(255,255,255,0.22);color:#fff;}
+
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 60px;}
+
+.page{opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease;display:none;}
+.page.visible{opacity:1;transform:translateY(0);}
+
+.sec-hd{text-align:center;margin-bottom:26px;}
+.sec-hd h2{font-family:'Amiri',serif;font-size:26px;color:var(--ico-c);font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;}
+.sec-hd h2 i{font-size:24px;}
+.sec-hd p{font-size:14px;color:var(--text2);margin-top:6px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+.card{background:var(--bg2);border:1.5px solid var(--brd);border-radius:14px;padding:20px 16px;cursor:pointer;transition:border-color .2s,transform .2s;}
+.card:hover{border-color:var(--ico-c);transform:translateY(-2px);}
+.ico{width:48px;height:48px;background:var(--ico-bg);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.ico i{font-size:24px;color:var(--ico-c);}
+.ico.green{background:#eaf3de;} .ico.green i{color:#3b6d11;}
+.ico.amber{background:#faeeda;} .ico.amber i{color:#854f0b;}
+.ico.red{background:#fcebeb;} .ico.red i{color:#a32d2d;}
+.ico.purple{background:#eeedfe;} .ico.purple i{color:#534ab7;}
+.ico.teal{background:#e1f5ee;} .ico.teal i{color:#0f6e56;}
+.ico.pink{background:#fbeaf0;} .ico.pink i{color:#993556;}
+body.dark .ico.green{background:#0d2410;} body.dark .ico.green i{color:#6db86a;}
+body.dark .ico.amber{background:#2a1a00;} body.dark .ico.amber i{color:#d4a055;}
+body.dark .ico.red{background:#2a0d0d;} body.dark .ico.red i{color:#d07070;}
+body.dark .ico.purple{background:#1a1540;} body.dark .ico.purple i{color:#9b92e8;}
+body.dark .ico.teal{background:#04342c;} body.dark .ico.teal i{color:#5dcaa5;}
+body.dark .ico.pink{background:#2a0d1a;} body.dark .ico.pink i{color:#d47090;}
+
+.card h3{font-size:15px;color:var(--text);font-weight:500;margin-bottom:5px;}
+.card p{font-size:13px;color:var(--text2);line-height:1.8;}
+.tag{display:inline-block;margin-top:9px;background:var(--tag-bg);color:var(--tag-c);font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+
+.det{background:var(--bg2);border:1.5px solid var(--brd);border-radius:14px;padding:24px;margin-top:14px;display:none;}
+.det h2{font-family:'Amiri',serif;font-size:22px;color:var(--text);display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.det h2 i{font-size:20px;color:var(--ico-c);}
+.ar-ex{font-family:'Amiri',serif;font-size:36px;color:var(--ico-c);text-align:center;padding:18px;background:var(--bg3);border-radius:10px;margin:14px 0;line-height:1.9;}
+.rule{background:var(--bg3);border-right:3px solid var(--rule-brd);border-radius:0 10px 10px 0;padding:13px 16px;font-size:14px;line-height:1.9;color:var(--text3);margin:12px 0;}
+.cls-btn{background:var(--btn-bg);border:none;color:var(--btn-c);padding:8px 16px;border-radius:20px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:13px;font-weight:500;margin-top:10px;display:inline-flex;align-items:center;gap:5px;transition:opacity .2s;}
+.cls-btn:hover{opacity:.8;}
+
+.harak-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
+.harak-card{background:var(--bg2);border:1.5px solid var(--brd);border-radius:14px;padding:22px 18px;cursor:pointer;transition:border-color .2s,transform .2s;}
+.harak-card:hover{border-color:var(--ico-c);transform:translateY(-2px);}
+.harak-symbol{font-family:'Amiri',serif;font-size:48px;color:var(--ico-c);text-align:center;margin-bottom:10px;line-height:1.3;}
+.harak-card h3{font-size:16px;color:var(--text);font-weight:500;margin-bottom:6px;text-align:center;}
+.harak-card p{font-size:13px;color:var(--text2);line-height:1.8;text-align:center;}
+.harak-ex{font-family:'Amiri',serif;font-size:28px;color:var(--ico-c);text-align:center;margin-top:10px;letter-spacing:8px;}
+
+.quiz-wrap{background:var(--bg2);border:1.5px solid var(--brd);border-radius:14px;padding:26px;}
+.quiz-q{font-family:'Amiri',serif;font-size:21px;color:var(--text);text-align:center;margin-bottom:8px;}
+.quiz-ar{font-family:'Amiri',serif;font-size:40px;color:var(--ico-c);text-align:center;padding:18px;background:var(--bg3);border-radius:10px;margin:0 0 18px;letter-spacing:4px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.opt{background:var(--bg3);border:1.5px solid var(--brd);color:var(--text);padding:12px 14px;border-radius:10px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:500;text-align:center;transition:border-color .2s;}
+.opt:hover{border-color:var(--ico-c);}
+.opt.ok{border-color:#3b6d11;background:#eaf3de;color:#27500a;}
+.opt.no{border-color:#a32d2d;background:#fcebeb;color:#791f1f;}
+body.dark .opt.ok{background:#0d2410;color:#6db86a;border-color:#3a7a35;}
+body.dark .opt.no{background:#2a0d0d;color:#d07070;border-color:#7a3535;}
+.fb{text-align:center;margin-top:14px;font-size:14px;min-height:20px;color:var(--text2);font-weight:500;}
+.nx{display:none;margin:14px auto 0;background:var(--ico-c);border:none;color:#fff;padding:10px 26px;border-radius:24px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:500;align-items:center;gap:7px;transition:opacity .2s;}
+.nx:hover{opacity:.85;}
+.nx.show{display:flex;}
+.score-bar{text-align:center;font-size:14px;color:var(--text2);margin-bottom:14px;font-weight:500;}
+.score-bar b{color:var(--ico-c);}
+
+.dev-outer{max-width:520px;margin:0 auto;}
+.dev-card{background:var(--bg2);border:1.5px solid var(--brd);border-radius:16px;padding:30px 24px;text-align:center;}
+.av{width:76px;height:76px;background:var(--ico-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;border:2.5px solid var(--ico-c);}
+.av i{font-size:36px;color:var(--ico-c);}
+.dn{font-family:'Amiri',serif;font-size:25px;color:var(--text);font-weight:700;margin-bottom:6px;}
+.dd{font-size:14px;color:var(--text2);display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;}
+.dd i{font-size:16px;color:var(--ico-c);}
+.dvd{border:none;border-top:1.5px solid var(--dvd);margin:20px 0;}
+.sup-card{background:var(--sup-bg);border-radius:12px;padding:16px 18px;text-align:center;}
+.sup-lbl{font-size:12px;color:var(--text2);margin-bottom:7px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:5px;}
+.sup-lbl i{font-size:14px;color:var(--ico-c);}
+.sup-nm{font-family:'Amiri',serif;font-size:20px;color:var(--text);font-weight:700;}
+.sup-rl{font-size:13px;color:var(--ico-c);margin-top:4px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:5px;}
+.sup-rl i{font-size:14px;}
+.dev-icons{display:flex;justify-content:center;gap:22px;margin-top:6px;}
+.dev-ico{text-align:center;}
+.dev-ico i{font-size:28px;color:var(--ico-c);display:block;margin-bottom:5px;}
+.dev-ico span{font-size:12px;color:var(--text2);}
+
+footer{background:var(--footer);text-align:center;padding:14px 20px;color:var(--footer-t);font-size:13px;}
+footer .fq{color:#f5d97a;font-family:'Amiri',serif;font-size:16px;display:block;margin-bottom:4px;}
+</style>
+
+<header>
+  <div class="header-top">
+    <div>
+      <div class="site-title"><i class="ti ti-book"></i>أحكام التلاوة</div>
+      <div class="site-sub">تعلّم تجويد القرآن الكريم</div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+      <i class="ti ti-moon" id="themeIcon"></i>
+      <span id="themeLabel">الوضع الداكن</span>
+    </button>
+  </div>
+  <div class="basmala">﷽</div>
+</header>
+
+<nav>
+  <button class="nav-btn active" id="nb-makhraj" onclick="goTo('makhraj')"><i class="ti ti-microphone"></i>المخارج</button>
+  <button class="nav-btn" id="nb-noon" onclick="goTo('noon')"><i class="ti ti-letter-n"></i>النون الساكنة</button>
+  <button class="nav-btn" id="nb-meem" onclick="goTo('meem')"><i class="ti ti-letter-m"></i>الميم الساكنة</button>
+  <button class="nav-btn" id="nb-madd" onclick="goTo('madd')"><i class="ti ti-arrows-horizontal"></i>المدود</button>
+  <button class="nav-btn" id="nb-harak" onclick="goTo('harak')"><i class="ti ti-accent"></i>الحركات</button>
+  <button class="nav-btn" id="nb-quiz" onclick="goTo('quiz')"><i class="ti ti-help-circle"></i>اختبر نفسك</button>
+  <button class="nav-btn" id="nb-dev" onclick="goTo('dev')"><i class="ti ti-code"></i>المطورون</button>
+</nav>
+
+<div class="wrap">
+
+<div id="pg-makhraj" class="page">
+  <div class="sec-hd"><h2><i class="ti ti-microphone"></i>مخارج الحروف</h2><p>مواضع خروج الأصوات من الجهاز النطقي</p></div>
+  <div class="grid">
+    <div class="card" onclick="tog('jawf')"><div class="ico"><i class="ti ti-wind"></i></div><h3>الجوف</h3><p>الفراغ الداخلي في الفم والحلق، مصدر حروف المد الثلاثة</p><span class="tag">أ · و · ي</span></div>
+    <div class="card" onclick="tog('halq')"><div class="ico"><i class="ti ti-ear"></i></div><h3>الحلق</h3><p>ثلاثة مخارج: أقصى الحلق ووسطه وأدناه</p><span class="tag">أ هـ ع غ ح خ</span></div>
+    <div class="card" onclick="tog('lisan')"><div class="ico"><i class="ti ti-flame"></i></div><h3>اللسان</h3><p>أكثر المخارج وأوسعها، يشمل ثمانية عشر حرفاً</p><span class="tag">18 حرفاً</span></div>
+    <div class="card" onclick="tog('shafa')"><div class="ico"><i class="ti ti-mouth"></i></div><h3>الشفتان</h3><p>مخرج الباء والميم والواو والفاء</p><span class="tag">ب م و ف</span></div>
+    <div class="card" onclick="tog('khay')"><div class="ico"><i class="ti ti-ripple"></i></div><h3>الخيشوم</h3><p>فتحة الأنف الداخلية، مخرج الغنة</p><span class="tag">الغنة</span></div>
+  </div>
+  <div id="det-jawf" class="det"><h2><i class="ti ti-wind"></i>الجوف</h2><div class="ar-ex">آ — وُ — يِ</div><div class="rule">الجوف هو الفراغ الواسع داخل الفم والحلق. منه تخرج حروف المد الثلاثة: الألف الساكنة المفتوح ما قبلها، والواو الساكنة المضموم ما قبلها، والياء الساكنة المكسور ما قبلها.</div><button class="cls-btn" onclick="tog('jawf')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-halq" class="det"><h2><i class="ti ti-ear"></i>الحلق</h2><div class="ar-ex">أ هـ — ع غ — ح خ</div><div class="rule"><strong style="color:var(--ico-c)">أقصى الحلق:</strong> الهمزة والهاء<br><strong style="color:var(--ico-c)">وسط الحلق:</strong> العين والغين<br><strong style="color:var(--ico-c)">أدنى الحلق:</strong> الحاء والخاء</div><button class="cls-btn" onclick="tog('halq')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-lisan" class="det"><h2><i class="ti ti-flame"></i>اللسان</h2><div class="ar-ex">ق ك — ج ش — ض — ل — ن — ر — ط د ت</div><div class="rule">للسان عشرة مخارج تُخرج ثمانية عشر حرفاً. تبدأ من أقصى اللسان وتنتهي بطرفه (الحروف الذلقية).</div><button class="cls-btn" onclick="tog('lisan')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-shafa" class="det"><h2><i class="ti ti-mouth"></i>الشفتان</h2><div class="ar-ex">بَ — مَ — وَ — فَ</div><div class="rule"><strong style="color:var(--ico-c)">باطن الشفة السفلى مع الثنايا العليا:</strong> الفاء<br><strong style="color:var(--ico-c)">ما بين الشفتين:</strong> الباء والميم والواو</div><button class="cls-btn" onclick="tog('shafa')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-khay" class="det"><h2><i class="ti ti-ripple"></i>الخيشوم</h2><div class="ar-ex">نّ — مّ</div><div class="rule">الخيشوم هو المنخر الداخلي. منه يخرج صوت الغنة اللازمة في النون والميم المشددتين. مقدار الغنة حركتان.</div><button class="cls-btn" onclick="tog('khay')"><i class="ti ti-x"></i>إغلاق</button></div>
+</div>
+
+<div id="pg-noon" class="page" style="display:none">
+  <div class="sec-hd"><h2><i class="ti ti-letter-n"></i>النون الساكنة والتنوين</h2><p>أربعة أحكام تتبدّل بحسب الحرف التالي</p></div>
+  <div class="grid">
+    <div class="card" onclick="tog('izhar')"><div class="ico green"><i class="ti ti-eye"></i></div><h3>الإظهار الحلقي</h3><p>إظهار النون واضحاً بلا غنة عند حروف الحلق</p><span class="tag">أ هـ ع غ ح خ</span></div>
+    <div class="card" onclick="tog('idgham')"><div class="ico amber"><i class="ti ti-arrow-merge"></i></div><h3>الإدغام</h3><p>إدخال النون في الحرف التالي حتى يصيرا واحداً مشدداً</p><span class="tag">ي ر م ل و ن</span></div>
+    <div class="card" onclick="tog('iqlab')"><div class="ico red"><i class="ti ti-refresh"></i></div><h3>الإقلاب</h3><p>قلب النون ميماً مع إخفائها والإبقاء على الغنة</p><span class="tag">ب فقط</span></div>
+    <div class="card" onclick="tog('ikhfa')"><div class="ico purple"><i class="ti ti-eye-off"></i></div><h3>الإخفاء الحقيقي</h3><p>بين الإظهار والإدغام مع الغنة عند خمسة عشر حرفاً</p><span class="tag">15 حرفاً</span></div>
+  </div>
+  <div id="det-izhar" class="det"><h2><i class="ti ti-eye"></i>الإظهار الحلقي</h2><div class="ar-ex">مَنْ أَرَادَ — مِنْ عِلْمٍ</div><div class="rule">سُمي حلقياً لأن حروفه من الحلق. تُنطق النون واضحة جلية دون غنة. حروفه: <strong style="color:var(--ico-c)">أ هـ ع غ ح خ</strong></div><button class="cls-btn" onclick="tog('izhar')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-idgham" class="det"><h2><i class="ti ti-arrow-merge"></i>الإدغام</h2><div class="ar-ex">مَن يَقُول — مِن رَّبِّهِمْ</div><div class="rule"><strong style="color:var(--ico-c)">بغنة (يرملون):</strong> ي ر م ل و ن<br><strong style="color:var(--ico-c)">بلا غنة:</strong> ل ر — تختفي الغنة<br>شرطه: النون والحرف في كلمتين مختلفتين</div><button class="cls-btn" onclick="tog('idgham')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-iqlab" class="det"><h2><i class="ti ti-refresh"></i>الإقلاب</h2><div class="ar-ex">أَنبِئْهُم — سَمِيعٌ بَصِير</div><div class="rule">عند مجيء الباء بعد النون الساكنة أو التنوين، تُقلب النون ميماً وتُخفى مع الغنة بمقدار حركتين.</div><button class="cls-btn" onclick="tog('iqlab')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-ikhfa" class="det"><h2><i class="ti ti-eye-off"></i>الإخفاء الحقيقي</h2><div class="ar-ex">مِن تَحْتِهَا — إِن كُنتُم</div><div class="rule">النطق بين الإظهار والإدغام مع الغنة حركتين. حروفه في أوائل: صف ذا ثنا كم جاد شخص قد سما دم طيباً زد في تقى ضع ظالماً.</div><button class="cls-btn" onclick="tog('ikhfa')"><i class="ti ti-x"></i>إغلاق</button></div>
+</div>
+
+<div id="pg-meem" class="page" style="display:none">
+  <div class="sec-hd"><h2><i class="ti ti-letter-m"></i>الميم الساكنة</h2><p>ثلاثة أحكام للميم الساكنة</p></div>
+  <div class="grid">
+    <div class="card" onclick="tog('ikh_sh')"><div class="ico purple"><i class="ti ti-eye-off"></i></div><h3>الإخفاء الشفوي</h3><p>إخفاء الميم الساكنة عند الباء مع الغنة حركتين</p><span class="tag">ب</span></div>
+    <div class="card" onclick="tog('idg_mm')"><div class="ico amber"><i class="ti ti-arrow-merge"></i></div><h3>الإدغام الشفوي</h3><p>إدغام الميم في الميم المتحركة فيصيران ميماً مشددة</p><span class="tag">م</span></div>
+    <div class="card" onclick="tog('izh_sh')"><div class="ico green"><i class="ti ti-eye"></i></div><h3>الإظهار الشفوي</h3><p>إظهار الميم بوضوح عند بقية الحروف الستة والعشرين</p><span class="tag">26 حرفاً</span></div>
+  </div>
+  <div id="det-ikh_sh" class="det"><h2><i class="ti ti-eye-off"></i>الإخفاء الشفوي</h2><div class="ar-ex">هُمْ بِهِ — تَرْمِيهِم بِحِجَارَةٍ</div><div class="rule">عند مجيء الباء بعد الميم الساكنة تُخفى الميم مع الغنة حركتين. سُمي شفوياً لأن كلا الحرفين من الشفتين.</div><button class="cls-btn" onclick="tog('ikh_sh')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-idg_mm" class="det"><h2><i class="ti ti-arrow-merge"></i>الإدغام الشفوي</h2><div class="ar-ex">لَكُمْ مَّا — وَهُمْ مِّنْهُمْ</div><div class="rule">إذا جاءت ميم ساكنة وبعدها ميم متحركة، أُدغمت الأولى في الثانية وصارتا ميماً مشددة مع الغنة حركتين.</div><button class="cls-btn" onclick="tog('idg_mm')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-izh_sh" class="det"><h2><i class="ti ti-eye"></i>الإظهار الشفوي</h2><div class="ar-ex">لَهُمْ فِيهَا — عَلَيْهِمْ وَلَا</div><div class="rule">عند مجيء أي حرف غير الباء والميم بعد الميم الساكنة، تُظهر الميم بوضوح. يُنتبه خصوصاً لحرفي الواو والفاء.</div><button class="cls-btn" onclick="tog('izh_sh')"><i class="ti ti-x"></i>إغلاق</button></div>
+</div>
+
+<div id="pg-madd" class="page" style="display:none">
+  <div class="sec-hd"><h2><i class="ti ti-arrows-horizontal"></i>أحكام المدود</h2><p>إطالة الصوت بحروف المد عند وجود سبب</p></div>
+  <div class="grid">
+    <div class="card" onclick="tog('mt')"><div class="ico"><i class="ti ti-wave-sine"></i></div><h3>المد الطبيعي</h3><p>المد الأصلي بلا سبب، مقداره حركتان دائماً</p><span class="tag">حركتان</span></div>
+    <div class="card" onclick="tog('mmu')"><div class="ico amber"><i class="ti ti-link"></i></div><h3>المد المتصل</h3><p>همزة بعد حرف مد في كلمة واحدة، واجب</p><span class="tag">4-5 حركات</span></div>
+    <div class="card" onclick="tog('mmn')"><div class="ico purple"><i class="ti ti-unlink"></i></div><h3>المد المنفصل</h3><p>حرف مد آخر الكلمة وهمزة أول التالية، جائز</p><span class="tag">4-5 حركات</span></div>
+    <div class="card" onclick="tog('ml')"><div class="ico red"><i class="ti ti-maximize"></i></div><h3>المد اللازم</h3><p>حرف مد يليه ساكن أصلي، أطول المدود وأقواها</p><span class="tag">6 حركات</span></div>
+  </div>
+  <div id="det-mt" class="det"><h2><i class="ti ti-wave-sine"></i>المد الطبيعي</h2><div class="ar-ex">قَالَ — قِيلَ — يَقُولُ</div><div class="rule">هو المد الأصلي الذي لا يقوم الحرف إلا به. مقداره حركتان في جميع أحوال التلاوة.</div><button class="cls-btn" onclick="tog('mt')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-mmu" class="det"><h2><i class="ti ti-link"></i>المد المتصل</h2><div class="ar-ex">جَاءَ — شَاءَ — سُوءَ</div><div class="rule">شرطه: الهمزة بعد حرف المد في كلمة واحدة. يُمد 4-5 حركات وهو واجب.</div><button class="cls-btn" onclick="tog('mmu')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-mmn" class="det"><h2><i class="ti ti-unlink"></i>المد المنفصل</h2><div class="ar-ex">يَا أَيُّهَا — وَفِي أَنفُسِكُمْ</div><div class="rule">شرطه: حرف المد آخر الكلمة والهمزة أول التالية. يُمد 4-5 حركات وهو جائز.</div><button class="cls-btn" onclick="tog('mmn')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-ml" class="det"><h2><i class="ti ti-maximize"></i>المد اللازم</h2><div class="ar-ex">الم — الٓمٓصٓ — وَلَا الضَّالِّين</div><div class="rule">أقوى المدود وأطولها، مقداره ست حركات لزوماً. يكثر في أوائل السور.</div><button class="cls-btn" onclick="tog('ml')"><i class="ti ti-x"></i>إغلاق</button></div>
+</div>
+
+<div id="pg-harak" class="page" style="display:none">
+  <div class="sec-hd"><h2><i class="ti ti-accent"></i>الحركات</h2><p>علامات الضبط التي تُحدد نطق الحروف وتُبيّن حركة الصوت</p></div>
+  <div class="harak-grid">
+    <div class="harak-card" onclick="tog('fatha')"><div class="harak-symbol">بَ</div><h3>الفتحة</h3><p>حركة قصيرة تُفتح بها الفم، وتكتب شرطة صغيرة فوق الحرف</p><div class="harak-ex">كَتَبَ</div></div>
+    <div class="harak-card" onclick="tog('kasra')"><div class="harak-symbol">بِ</div><h3>الكسرة</h3><p>حركة قصيرة يُكسر بها الفك الأسفل، وتكتب شرطة صغيرة تحت الحرف</p><div class="harak-ex">بِسْمِ</div></div>
+    <div class="harak-card" onclick="tog('damma')"><div class="harak-symbol">بُ</div><h3>الضمة</h3><p>حركة قصيرة تُضم بها الشفتان، وتكتب واو صغيرة فوق الحرف</p><div class="harak-ex">كُتُبٌ</div></div>
+    <div class="harak-card" onclick="tog('sukun')"><div class="harak-symbol">بْ</div><h3>السكون</h3><p>علامة تدل على أن الحرف خالٍ من الحركة، وتكتب دائرة صغيرة فوق الحرف</p><div class="harak-ex">قُلْ هُوَ</div></div>
+    <div class="harak-card" onclick="tog('shadda')"><div class="harak-symbol">بّ</div><h3>الشدة (التشديد)</h3><p>علامة تدل على تضعيف الحرف وتكريره، حرف ساكن يُدغم في متحرك</p><div class="harak-ex">إِنَّ — رَبَّنَا</div></div>
+    <div class="harak-card" onclick="tog('tanwin_fat')"><div class="harak-symbol">بً</div><h3>تنوين الفتح</h3><p>نون ساكنة زائدة في آخر الاسم تُلفظ ولا تُكتب، وعلامتها فتحتان</p><div class="harak-ex">كِتَابًا</div></div>
+    <div class="harak-card" onclick="tog('tanwin_kas')"><div class="harak-symbol">بٍ</div><h3>تنوين الكسر</h3><p>نون ساكنة زائدة في آخر الاسم، وعلامتها كسرتان تحت الحرف</p><div class="harak-ex">بِعَبْدٍ</div></div>
+    <div class="harak-card" onclick="tog('tanwin_dam')"><div class="harak-symbol">بٌ</div><h3>تنوين الضم</h3><p>نون ساكنة زائدة في آخر الاسم، وعلامتها ضمتان فوق الحرف</p><div class="harak-ex">عَلِيمٌ</div></div>
+    <div class="harak-card" onclick="tog('madd_sym')"><div class="harak-symbol">آ</div><h3>المدة</h3><p>علامة المد تكتب فوق الألف وتدل على مد الصوت حركتين</p><div class="harak-ex">آمَنَ — آدَم</div></div>
+  </div>
+  <div id="det-fatha" class="det"><h2><i class="ti ti-minus"></i>الفتحة</h2><div class="ar-ex">بَ — تَ — ثَ</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> حركة قصيرة تُفتح بها الفم عند النطق.<br><strong style="color:var(--ico-c)">الشكل:</strong> شرطة صغيرة أفقية فوق الحرف ( ـَ ).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> إذا جاء بعدها ألف مد صارت مداً طبيعياً بمقدار حركتين.<br><strong style="color:var(--ico-c)">مثال:</strong> كَتَبَ، ذَهَبَ، فَتَحَ</div><button class="cls-btn" onclick="tog('fatha')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-kasra" class="det"><h2><i class="ti ti-minus"></i>الكسرة</h2><div class="ar-ex">بِ — تِ — ثِ</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> حركة قصيرة يُكسر بها الفك الأسفل عند النطق.<br><strong style="color:var(--ico-c)">الشكل:</strong> شرطة صغيرة أفقية تحت الحرف ( ـِ ).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> إذا جاء بعدها ياء ساكنة صارت مداً طبيعياً.<br><strong style="color:var(--ico-c)">مثال:</strong> بِسْمِ، فِي، دِينِ</div><button class="cls-btn" onclick="tog('kasra')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-damma" class="det"><h2><i class="ti ti-circle"></i>الضمة</h2><div class="ar-ex">بُ — تُ — ثُ</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> حركة قصيرة تُضم بها الشفتان عند النطق.<br><strong style="color:var(--ico-c)">الشكل:</strong> واو صغيرة فوق الحرف ( ـُ ).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> إذا جاء بعدها واو ساكنة صارت مداً طبيعياً.<br><strong style="color:var(--ico-c)">مثال:</strong> قُلْ، هُوَ، نُورٌ</div><button class="cls-btn" onclick="tog('damma')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-sukun" class="det"><h2><i class="ti ti-circle"></i>السكون</h2><div class="ar-ex">قُلْ — مِنْ — عَنْ</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> علامة تدل على خلو الحرف من الحركة، فيكون الحرف ساكناً.<br><strong style="color:var(--ico-c)">الشكل:</strong> دائرة صغيرة فوق الحرف ( ـْ ).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> الحرف الساكن لا يُبدأ به ولا يُوقف على ما قبله إذا كان متحركاً. وللسكون أثر كبير في أحكام النون الساكنة والمدود.</div><button class="cls-btn" onclick="tog('sukun')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-shadda" class="det"><h2><i class="ti ti-bold"></i>الشدة (التشديد)</h2><div class="ar-ex">إِنَّ — رَبَّنَا — الضَّالِّين</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> علامة تدل على تضعيف الحرف وتكريره، فهي تجمع حرفاً ساكناً مُدغماً في حرف متحرك.<br><strong style="color:var(--ico-c)">الشكل:</strong> علامة تشبه رأس الشين ( ـّ ) فوق الحرف.<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> الحرف المشدد يُلزم الغنة إذا كان نوناً أو ميماً بمقدار حركتين، وهو ما يُسمى بالغنة المشددة.</div><button class="cls-btn" onclick="tog('shadda')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-tanwin_fat" class="det"><h2><i class="ti ti-letter-a"></i>تنوين الفتح</h2><div class="ar-ex">كِتَابًا — عِلْمًا — خَيْرًا</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> نون ساكنة زائدة في آخر الاسم تُلفظ ولا تُكتب.<br><strong style="color:var(--ico-c)">الشكل:</strong> فتحتان فوق الحرف ( ـً )، وتُزاد ألف بعد الحرف في الغالب.<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> تأخذ أحكام النون الساكنة كاملة (إظهار، إدغام، إقلاب، إخفاء). وعند الوقف عليها تُقلب ألفاً مع المد.</div><button class="cls-btn" onclick="tog('tanwin_fat')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-tanwin_kas" class="det"><h2><i class="ti ti-letter-a"></i>تنوين الكسر</h2><div class="ar-ex">بِعَبْدٍ — مِن نَّبَإٍ — رَحِيمٍ</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> نون ساكنة زائدة في آخر الاسم تُلفظ ولا تُكتب.<br><strong style="color:var(--ico-c)">الشكل:</strong> كسرتان تحت الحرف ( ـٍ ).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> تأخذ أحكام النون الساكنة كاملة. وعند الوقف عليها يُسكَّن الحرف ويختفي التنوين.</div><button class="cls-btn" onclick="tog('tanwin_kas')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-tanwin_dam" class="det"><h2><i class="ti ti-letter-a"></i>تنوين الضم</h2><div class="ar-ex">عَلِيمٌ — كَرِيمٌ — غَفُورٌ</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> نون ساكنة زائدة في آخر الاسم تُلفظ ولا تُكتب.<br><strong style="color:var(--ico-c)">الشكل:</strong> ضمتان فوق الحرف ( ـٌ ).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> تأخذ أحكام النون الساكنة كاملة. وعند الوقف يُسكَّن الحرف ويختفي التنوين.</div><button class="cls-btn" onclick="tog('tanwin_dam')"><i class="ti ti-x"></i>إغلاق</button></div>
+  <div id="det-madd_sym" class="det"><h2><i class="ti ti-wave-sine"></i>المدة</h2><div class="ar-ex">آمَنَ — آدَمَ — آيَة</div><div class="rule"><strong style="color:var(--ico-c)">التعريف:</strong> علامة المد تُكتب فوق الألف وتدل على وجود همزة قطع قبل ألف مد.<br><strong style="color:var(--ico-c)">الشكل:</strong> موجة صغيرة فوق الألف (~).<br><strong style="color:var(--ico-c)">حكمها في التجويد:</strong> تُمد بمقدار حركتين وهو المد الطبيعي، وهي في الأصل همزة وصلت بألف مد فاجتمعت همزتان فخُففت الثانية بالمد.</div><button class="cls-btn" onclick="tog('madd_sym')"><i class="ti ti-x"></i>إغلاق</button></div>
+</div>
+
+<div id="pg-quiz" class="page" style="display:none">
+  <div class="sec-hd"><h2><i class="ti ti-help-circle"></i>اختبر معلوماتك</h2><p>أسئلة في أحكام التجويد والحركات</p></div>
+  <div class="score-bar"><i class="ti ti-star" style="font-size:15px;vertical-align:-2px;color:#c9a84c"></i> النتيجة: <b id="sc">0</b> / <b id="tot">0</b></div>
+  <div class="quiz-wrap">
+    <div class="quiz-q" id="qQ"></div>
+    <div class="quiz-ar" id="qA"></div>
+    <div class="opts" id="qO"></div>
+    <div class="fb" id="qF"></div>
+    <button class="nx" id="nBtn" onclick="nextQ()"><i class="ti ti-arrow-left"></i>السؤال التالي</button>
+  </div>
+</div>
+
+<div id="pg-dev" class="page" style="display:none">
+  <div class="sec-hd"><h2><i class="ti ti-code"></i>المطورون</h2><p>فريق تطوير الموقع</p></div>
+  <div class="dev-outer">
+    <div class="dev-card">
+      <div class="av"><i class="ti ti-user"></i></div>
+      <div class="dn">سالم محمد سالم باراجي</div>
+      <div class="dd"><i class="ti ti-school"></i>مدرسة النصر الأهلية</div>
+      <div class="dd"><i class="ti ti-certificate"></i>الصف العاشر</div>
+      <hr class="dvd">
+      <div class="sup-card">
+        <div class="sup-lbl"><i class="ti ti-star"></i>تحت إشراف</div>
+        <div class="sup-nm">الأستاذ فايز طاهر</div>
+        <div class="sup-rl"><i class="ti ti-book-2"></i>مشرف القرآن الكريم والدراسات الإسلامية</div>
+      </div>
+      <hr class="dvd">
+      <div class="dev-icons">
+        <div class="dev-ico"><i class="ti ti-device-laptop"></i><span>تصميم الواجهة</span></div>
+        <div class="dev-ico"><i class="ti ti-server"></i><span>تطوير المحتوى</span></div>
+        <div class="dev-ico"><i class="ti ti-book"></i><span>المحتوى الإسلامي</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <span class="fq">﷽</span>
+  «خيركم من تعلّم القرآن وعلّمه» — صحيح البخاري
+</footer>
+
+<script>
+const pages=['makhraj','noon','meem','madd','harak','quiz','dev'];
+let isDark=false,cur=0,score=0,answered=false;
+
+function toggleTheme(){
+  isDark=!isDark;
+  document.body.className=isDark?'dark':'light';
+  document.getElementById('themeIcon').className=isDark?'ti ti-sun':'ti ti-moon';
+  document.getElementById('themeLabel').textContent=isDark?'الوضع الفاتح':'الوضع الداكن';
+}
+
+function goTo(id){
+  const current=document.querySelector('.page.visible');
+  if(current){
+    current.style.opacity='0';
+    current.style.transform='translateY(16px)';
+    setTimeout(()=>{
+      current.classList.remove('visible');
+      current.style.display='none';
+      showPage(id);
+    },300);
+  } else {
+    showPage(id);
+  }
+  pages.forEach(p=>document.getElementById('nb-'+p).classList.remove('active'));
+  document.getElementById('nb-'+id).classList.add('active');
+  if(id==='quiz'){cur=0;score=0;answered=false;loadQ();updSc();}
+}
+
+function showPage(id){
+  const el=document.getElementById('pg-'+id);
+  el.style.display='block';
+  el.style.opacity='0';
+  el.style.transform='translateY(16px)';
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      el.style.transition='opacity .45s ease,transform .45s ease';
+      el.style.opacity='1';
+      el.style.transform='translateY(0)';
+      el.classList.add('visible');
+    });
+  });
+}
+
+function tog(id){
+  const el=document.getElementById('det-'+id);
+  if(!el)return;
+  const isOpen=el.style.display==='block';
+  document.querySelectorAll('.det').forEach(d=>d.style.display='none');
+  if(!isOpen){el.style.display='block';setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}),60);}
+}
+
+const qs=[
+  {q:'ما حكم النون الساكنة في الآية؟',a:'مَن يَقُولُ',ans:1,opts:['الإظهار','الإدغام بغنة','الإخفاء','الإقلاب'],ex:'الياء من حروف الإدغام بغنة'},
+  {q:'ما مقدار المد الطبيعي؟',a:'قَالَ',ans:0,opts:['حركتان','أربع حركات','ست حركات','حركة'],ex:'المد الطبيعي حركتان دائماً'},
+  {q:'ما الحركة الظاهرة على الحرف؟',a:'بُ',ans:2,opts:['فتحة','كسرة','ضمة','سكون'],ex:'الواو الصغيرة فوق الحرف تدل على الضمة'},
+  {q:'ما الحركة الظاهرة على الحرف؟',a:'بِ',ans:1,opts:['فتحة','كسرة','ضمة','تنوين'],ex:'الشرطة الصغيرة تحت الحرف تدل على الكسرة'},
+  {q:'كم مقدار المد اللازم؟',a:'الٓمٓ',ans:3,opts:['حركتان','ثلاث','أربع','ست حركات'],ex:'المد اللازم ست حركات لزوماً'},
+  {q:'ماذا تدل هذه العلامة؟',a:'بّ',ans:0,opts:['الشدة','السكون','التنوين','المدة'],ex:'العلامة فوق الحرف تدل على الشدة (التضعيف)'},
+  {q:'ما حكم الميم الساكنة في الآية؟',a:'هُمْ بِهِ',ans:2,opts:['الإظهار','الإدغام','الإخفاء الشفوي','الإقلاب'],ex:'الباء بعد الميم الساكنة = إخفاء شفوي'},
+  {q:'ما نوع التنوين في الكلمة؟',a:'عَلِيمٌ',ans:2,opts:['تنوين فتح','تنوين كسر','تنوين ضم','ليس تنويناً'],ex:'الضمتان فوق الحرف = تنوين ضم'},
+];
+
+function loadQ(){
+  answered=false;
+  const q=qs[cur%qs.length];
+  document.getElementById('qQ').textContent=q.q;
+  document.getElementById('qA').textContent=q.a;
+  document.getElementById('qF').textContent='';
+  document.getElementById('nBtn').classList.remove('show');
+  const o=document.getElementById('qO');
+  o.innerHTML='';
+  q.opts.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt';b.textContent=opt;
+    b.onclick=()=>check(i,q.ans,q.ex);
+    o.appendChild(b);
+  });
+}
+
+function check(chosen,correct,ex){
+  if(answered)return;
+  answered=true;
+  const bs=document.querySelectorAll('.opt');
+  bs[chosen].classList.add(chosen===correct?'ok':'no');
+  bs[correct].classList.add('ok');
+  if(chosen===correct)score++;
+  document.getElementById('qF').textContent=(chosen===correct?'✓ صحيح! ':'✗ ')+ex;
+  document.getElementById('nBtn').classList.add('show');
+  updSc();
+}
+
+function nextQ(){cur++;loadQ();}
+function updSc(){
+  document.getElementById('sc').textContent=score;
+  document.getElementById('tot').textContent=Math.min(cur+(answered?1:0),qs.length);
+}
+
+document.body.className='light';
+showPage('makhraj');
+loadQ();
+</script>
